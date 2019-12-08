@@ -1,0 +1,11 @@
+@import "src/colors.scss";
+
+tr {
+  cursor: pointer;
+
+  &.active {
+    font-weight: bold;
+    color: darken($primary, 20%);
+    background-color: $grayscale-2;
+  }
+}

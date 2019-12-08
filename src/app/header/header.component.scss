@@ -1,0 +1,12 @@
+@import "src/colors.scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+  padding-left: 20px;
+  height: 3em;
+  background-color: $primary;
+  color: $grayscale-1;
+}

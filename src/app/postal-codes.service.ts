@@ -9,7 +9,7 @@ export class PostalCodesService {
   private postalCodeStaticData = postalCodesData
     .filter(code => {
       if (code.postal_code && code.latitude && code.longitude) {
-        code.markerRef =  new google.maps.Marker({
+        code.markerRef = new google.maps.Marker({
           position: new google.maps.LatLng(code.latitude, code.longitude),
           title: code.postal_code,
           icon: 'http://maps.google.com/mapfiles/ms/icons/yellow.png'

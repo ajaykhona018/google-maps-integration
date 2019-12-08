@@ -9,7 +9,7 @@ import { PostalCodesService } from '../postal-codes.service';
 export class SearchComponent implements OnInit {
 
   searchValue: string;
-  constructor( private postalCodeService: PostalCodesService) { }
+  constructor(private postalCodeService: PostalCodesService) { }
 
   ngOnInit() {
   }

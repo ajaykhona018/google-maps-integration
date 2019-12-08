@@ -1,1 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
+@import "src/colors.scss";
+html,
+body {
+  font-size: 16px;
+  height: 100%;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input {
+  margin: 0 0.2em;
+  padding: 0.75em 1em;
+  border: 1px solid $grayscale-2;
+  border-radius: 50px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.table {
+  border: none;
+  border-spacing: 0px;
+
+  &.table-full {
+    width: 100%;
+  }
+
+  thead {
+    text-transform: uppercase;
+    text-align: left;
+    th {
+      padding: 0.5em;
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 0.5em;
+      }
+
+      &:hover {
+        background-color: $grayscale-1;
+      }
+    }
+  }
+}
+
+/* Generic Classes */
+.btn {
+  margin: 0 0.2em;
+  padding: 0.75em 1em;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.btn-primary {
+    background-color: $primary;
+    color: $grayscale-1;
+
+    &:hover {
+      background-color: lighten($primary, 10%);
+    }
+
+    &:active {
+      outline: none;
+      background-color: lighten($primary, 15%);
+    }
+
+    &:focus {
+        outline: none;
+    }
+  }
+}
+
+.d-flex {
+  display: flex;
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+}

@@ -1,0 +1,6 @@
+@import "src/colors.scss";
+
+.search {
+  padding: 0.25em 1em;
+  background-color: lighten($primary, 5%);
+}

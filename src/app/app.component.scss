@@ -1,10 +1,21 @@
-.full-height {
-    height: calc(100vh - 55.6px);
+@import "src/colors.scss";
 
-    .pane {
-        height: 100%;
-        &.pane-left {
-            overflow-y: scroll;
-        }
+.container {
+  height: calc(100vh - 3em);
+  display: flex;
+  justify-content: flex-start;
+
+  .pane {
+    height: 100%;
+
+    &.pane-left {
+      overflow-y: scroll;
+      width: 40%;
     }
+
+    &.pane-right {
+      background-color: $grayscale-1;
+      width: 60%;
+    }
+  }
 }
