@@ -20,6 +20,7 @@ export class PostalCodesMapComponent implements OnInit, AfterViewInit {
   }
 
   configureMap(codeList) {
+    // If too the list is long, let the center & zoom remain as default.
     if (this.postalCodesService.shouldCalculateCenter(codeList.length)) {
       if (codeList.length === 1) {
         const { latitude, longitude } = codeList[0];
@@ -33,6 +34,7 @@ export class PostalCodesMapComponent implements OnInit, AfterViewInit {
           maxLong: number
         };
 
+        // Calculate Center position of the list co-ordinates
         const boundryCordinates: boundry = codeList.reduce((range: boundry, currentCode) => {
           range.minLat = currentCode.latitude < range.minLat && currentCode.latitude;
           range.minLong = currentCode.longitude < range.minLong && currentCode.longitude;
@@ -53,21 +55,22 @@ export class PostalCodesMapComponent implements OnInit, AfterViewInit {
       this.map.setZoom(this.defaultZoom)
     }
 
+    // Set Map for the marker reference
     codeList.forEach(code => {
       code.markerRef.setMap(this.map)
     })
   }
 
   ngAfterViewInit() {
+    // Initialize Google Maps
     const mapProperties = {
       center: this.defaultCenter,
       zoom: this.defaultZoom,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapProperties);
+
+    // Subscribe to the Postal Codes
     this.postalCodesService.postalCodesSource.subscribe(codeList => this.configureMap(codeList))
   }
-
-
 }

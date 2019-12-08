@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { postalCodesData } from '../../postal_codes_data.js'
+import { postalCodesData } from '../assets/postal_codes_data.js'
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostalCodesService {
+  // Cleanse the data from the raw file, as few rows do not contain all the properties.
   private postalCodeStaticData = postalCodesData
     .filter(code => {
       if (code.postal_code && code.latitude && code.longitude) {
@@ -19,6 +20,7 @@ export class PostalCodesService {
         return false
       }
     })
+
   private postalCodesObserver = new BehaviorSubject(this.postalCodeStaticData)
   postalCodesSource = this.postalCodesObserver.asObservable()
 
@@ -43,9 +45,5 @@ export class PostalCodesService {
   shouldCalculateCenter(highlightCount: number) {
     const thresholdPercent = .5;
     return highlightCount / this.postalCodeStaticData.length <= thresholdPercent
-  }
-
-  getPostalCode(index: number) {
-    return this.postalCodeStaticData[index]
   }
 }
