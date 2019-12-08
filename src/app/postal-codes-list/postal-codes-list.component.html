@@ -1,0 +1,17 @@
+<app-search></app-search>
+<table class="table table-hover">
+    <thead>
+        <th>#</th>
+        <th>Postal Code</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let code of postalCodesList; let i = index">
+            <td>{{ (i+1) }}</td>
+            <td>{{ code.postal_code }}</td>
+            <td>{{ code.latitude }}</td>
+            <td>{{ code.longitude }}</td>
+        </tr>
+    </tbody>
+</table>

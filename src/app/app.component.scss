@@ -1,0 +1,10 @@
+.full-height {
+    height: calc(100vh - 55.6px);
+
+    .pane {
+        height: 100%;
+        &.pane-left {
+            overflow-y: scroll;
+        }
+    }
+}
